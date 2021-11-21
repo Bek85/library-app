@@ -1,7 +1,73 @@
-{{page-title "LibraryApp"}}
-
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
+{{page-title 'LibraryApp'}}
+<BsNavbar @type="dark" @backgroundColor="dark" @collapsed={{true}} as |navbar|>
+  <div class="container">
+    <div class="navbar-header">
+      {{navbar.toggle}}
+      <LinkTo @route="index" class="navbar-brand">
+        Library App
+      </LinkTo>
+    </div>
+    <navbar.content>
+      <navbar.nav class="mr-auto" as |nav|>
+        <nav.item>
+          <nav.link-to @route="index">
+            Home
+          </nav.link-to>
+        </nav.item>
+        <nav.item>
+          <nav.link-to @route="index">
+            Libraries
+          </nav.link-to>
+        </nav.item>
+        <nav.item>
+          <nav.link-to @route="index">
+            Authors
+          </nav.link-to>
+        </nav.item>
+        <nav.item>
+          <nav.link-to @route="index">
+            Books
+          </nav.link-to>
+        </nav.item>
+      </navbar.nav>
+    </navbar.content>
+    <navbar.content>
+      <navbar.nav as |nav|>
+        <nav.item>
+          <nav.link-to @route="about">
+            About
+          </nav.link-to>
+        </nav.item>
+        <nav.item>
+          <nav.link-to @route="contact">
+            Contact
+          </nav.link-to>
+        </nav.item>
+        <nav.dropdown as |dd|>
+          <dd.toggle>
+            Admin
+            <span class="caret"></span>
+          </dd.toggle>
+          <dd.menu as |ddm|>
+            <ddm.item>
+              <ddm.link-to @route="index">
+                Invitations
+              </ddm.link-to>
+            </ddm.item>
+            <ddm.item>
+              <ddm.link-to @route="index">
+                Contacts
+              </ddm.link-to>
+            </ddm.item>
+            <ddm.item>
+              <ddm.link-to @route="index">
+                Seeder
+              </ddm.link-to>
+            </ddm.item>
+          </dd.menu>
+        </nav.dropdown>
+      </navbar.nav>
+    </navbar.content>
+  </div>
+</BsNavbar>
 {{outlet}}
