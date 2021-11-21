@@ -1,14 +1,20 @@
 {{page-title 'LibraryApp'}}
-<BsNavbar @type="dark" @backgroundColor="dark" @collapsed={{true}} as |navbar|>
-  <div class="container">
+<BsNavbar
+  @type="dark"
+  @backgroundColor="dark"
+  @collapsed={{true}}
+  @onCollapse={{fn (mut this.collapsed) true}}
+  @onExpand={{fn (mut this.collapsed) false}} as |navbar|
+>
+  <div class="container d-flex">
     <div class="navbar-header">
-      {{navbar.toggle}}
+      <navbar.toggle />
       <LinkTo @route="index" class="navbar-brand">
         Library App
       </LinkTo>
     </div>
     <navbar.content>
-      <navbar.nav class="mr-auto" as |nav|>
+      <navbar.nav as |nav|>
         <nav.item>
           <nav.link-to @route="index">
             Home
@@ -30,9 +36,7 @@
           </nav.link-to>
         </nav.item>
       </navbar.nav>
-    </navbar.content>
-    <navbar.content>
-      <navbar.nav as |nav|>
+      <navbar.nav class="ml-auto" as |nav|>
         <nav.item>
           <nav.link-to @route="about">
             About
