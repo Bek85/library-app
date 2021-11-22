@@ -15,15 +15,19 @@ export default class IndexController extends Controller {
   @not('isValid') isDisabled;
 
   @action
-  saveInvitation() {
+  async saveInvitation() {
     const email = this.emailAddress;
 
     const newInvitation = this.store.createRecord('invitation', {
       email: email,
     });
-    newInvitation.save();
-
-    this.responseMessage = `Thank you! We've just saved your email address: ${this.emailAddress}`;
-    this.emailAddress = '';
+    try {
+      await newInvitation.save();
+      this.responseMessage = `Thank you! We've just saved your email address: ${this.emailAddress}`;
+      this.emailAddress = '';
+      console.log('Email address has been saved to Firebase');
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
