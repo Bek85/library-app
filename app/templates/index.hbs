@@ -1,37 +1,34 @@
-<div class="container">
-  <div class="jumbotron text-center">
-    <h1>
-      Coming Soon
-    </h1>
-    <p>
-      Don't miss our launch date, request an invitation now.
-    </p>
-    <div class="form-group row justify-content-center">
-      <div
-        class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2"
-      >
-        <Input
-          type="email"
-          @value={{this.emailAddress}}
-          class="form-control"
-          placeholder="Please type your e-mail address."
-          autofocus="autofocus"
-        />
-      </div>
-      <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-        <BsButton
-          disabled={{this.isDisabled}}
-          class="btn btn-primary btn-block"
-          {{on 'click' this.saveInvitation}}
-        >
-          Request invitation
-        </BsButton>
-      </div>
+<div class="jumbotron text-center">
+  <h1 class="display-4">
+    {{this.headerMessage}}
+  </h1>
+  <hr class="my-4" />
+  <p>
+    Don't miss our launch date, request an invitation now.
+  </p>
+  <div class="form-row justify-content-center">
+    <div class="col-md-6">
+      <Input
+        @type="email"
+        @value={{this.emailAddress}}
+        class="form-control"
+        placeholder="Please type your e-mail address."
+        @autofocus="autofocus"
+      />
     </div>
-    {{#if this.responseMessage}}
-      <div class="alert alert-success">
-        {{this.responseMessage}}
-      </div>
-    {{/if}}
+    <div class="col-md-2">
+      <BsButton
+        disabled={{this.isDisabled}}
+        class="btn btn-primary btn-block"
+        {{on 'click' this.saveInvitation}}
+      >
+        Request invitation
+      </BsButton>
+    </div>
   </div>
+  {{#if this.responseMessage}}
+    <div class="alert alert-success mt-3" role="alert">
+      {{this.responseMessage}}
+    </div>
+  {{/if}}
 </div>

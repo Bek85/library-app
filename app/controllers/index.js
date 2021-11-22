@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 import { match, not } from '@ember/object/computed';
 
 export default class IndexController extends Controller {
+  headerMessage = 'Coming Soon';
   @tracked emailAddress = '';
   @tracked responseMessage = '';
 

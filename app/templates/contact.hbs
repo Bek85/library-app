@@ -1,5 +1,22 @@
 {{page-title 'Contact'}}
-<h1>
-  Contact Page
-</h1>
+<BsForm as |form|>
+  <form.group class="container">
+    <label class="control-label">
+      Email Address
+    </label>
+    <Input @type="email" @value={{this.emailAddress}} class="form-control" />
+    <label class="control-label">
+      Enter your message
+    </label>
+    <Textarea
+      class="form-control"
+      placeholder="Your Message. (At least 5 characters)"
+      rows="7"
+      @value={{this.message}}
+    />
+    <BsButton @type="primary" @onClick={{this.sendMessage}}>
+      Send Message
+    </BsButton>
+  </form.group>
+</BsForm>
 {{outlet}}
