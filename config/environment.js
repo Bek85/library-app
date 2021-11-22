@@ -7,13 +7,14 @@ module.exports = function (environment) {
     rootURL: '/',
     locationType: 'auto',
     firebase: {
-      apiKey: 'AIzaSyDaPYTwfyN5jQSONnDLlyEjuNzIQcklhaw',
-      authDomain: 'library-app-4f098.firebaseapp.com',
-      projectId: 'library-app-4f098',
-      storageBucket: 'library-app-4f098.appspot.com',
-      messagingSenderId: '948946415011',
-      appId: '1:948946415011:web:1033614c3eb69a63107e16',
-      measurementId: 'G-HPRPTMCLT3',
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      databaseURL: process.env.DATABASE_URL,
+      projectId: process.env.PROJECT_ID,
+      storageBucket: process.env.STORAGE_BUCKET,
+      messagingSenderId: process.env.MESSAGING_SENDER_ID,
+      appId: process.env.APP_ID,
+      measurementId: process.env.MEASUREMENT_ID,
     },
     EmberENV: {
       FEATURES: {

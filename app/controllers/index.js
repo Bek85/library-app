@@ -19,7 +19,7 @@ export default class IndexController extends Controller {
     const email = this.emailAddress;
 
     const newInvitation = this.store.createRecord('invitation', {
-      email: email,
+      email,
     });
     try {
       await newInvitation.save();
