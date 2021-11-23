@@ -7,9 +7,8 @@ export default class ContactController extends Controller {
   @tracked message = '';
 
   @action
-  sendMessage() {
-    console.log(
-      `You have sent the following message '${this.message}' to this email: ${this.emailAddress}`
-    );
+  async sendMessage(newContactMessage) {
+    await newContactMessage.save();
+    this.message = true;
   }
 }

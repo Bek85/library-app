@@ -19,7 +19,7 @@
     <div class="col-md-2">
       <BsButton
         disabled={{this.isDisabled}}
-        class="btn btn-primary btn-block"
+        @type="primary"
         {{on 'click' this.saveInvitation}}
       >
         Request invitation
