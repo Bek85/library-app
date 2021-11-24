@@ -22,6 +22,15 @@
         <th>
           {{invitation.email}}
         </th>
+        <th>
+          <button
+            type="button"
+            class="btn btn-danger btn-xs"
+            {{on 'click' (fn this.deleteInvitation invitation)}}
+          >
+            Delete
+          </button>
+        </th>
       </tr>
     {{/each}}
   </tbody>
