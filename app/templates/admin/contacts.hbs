@@ -28,6 +28,15 @@
         <td>
           {{contact.message}}
         </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger btn-xs"
+            {{on 'click' (fn this.deleteContact contact)}}
+          >
+            Delete
+          </button>
+        </td>
       </tr>
     {{/each}}
   </tbody>
