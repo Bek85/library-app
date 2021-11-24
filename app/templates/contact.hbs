@@ -42,7 +42,7 @@
           @autofocus="autofocus"
         />
         {{#if this.model.isValidEmail}}
-          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+          <FaIcon @icon="check-circle" class="check-icon" />
         {{/if}}
       </div>
       <div
@@ -59,7 +59,7 @@
           @value={{this.model.message}}
         />
         {{#if this.model.isMessageLongEnough}}
-          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+          <FaIcon @icon="check-circle" class="check-icon" />
         {{/if}}
       </div>
       <button

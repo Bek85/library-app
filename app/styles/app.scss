@@ -11,3 +11,15 @@ html {
 .library-item {
   min-height: 150px;
 }
+
+.has-feedback {
+  position: relative;
+
+  .check-icon {
+    position: absolute;
+    right: 10px;
+    top: 42px;
+    color: #008000;
+    font-size: 20px;
+  }
+}
