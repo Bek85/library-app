@@ -9,6 +9,10 @@ export default class LibrariesNewRoute extends Route {
     return this.store.createRecord('library');
   }
 
+  renderTemplate() {
+    this.render('libraries/form');
+  }
+
   @action
   willTransition() {
     // rollbackAttributes() removes the record from the store

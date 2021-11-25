@@ -6,6 +6,10 @@ export default class LibrariesEditRoute extends Route {
     return this.store.findRecord('library', params.library_id);
   }
 
+  renderTemplate() {
+    this.render('libraries/form');
+  }
+
   @action
   willTransition(transition) {
     const model = this.controllerFor('libraries.edit').model;
