@@ -2,12 +2,12 @@ import Route from '@ember/routing/route';
 import { action } from '@ember/object';
 
 export default class LibrariesEditRoute extends Route {
-  model(params) {
-    return this.store.findRecord('library', params.library_id);
-  }
-
-  renderTemplate() {
-    this.render('libraries/form');
+  model({ library_id }) {
+    if (library_id === 'new') {
+      return this.store.createRecord('library');
+    } else {
+      return this.store.findRecord('library', library_id);
+    }
   }
 
   @action
@@ -15,7 +15,7 @@ export default class LibrariesEditRoute extends Route {
     const model = this.controllerFor('libraries.edit').model;
     if (model.hasDirtyAttributes) {
       const confirmation = confirm(
-        "Your changes havent't been seved yet. Would you like to leave this form?"
+        "Your changes haven't been saved yet. Would you like to leave this form?"
       );
       confirmation ? model.rollbackAttributes() : transition.abort();
     }
