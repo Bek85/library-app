@@ -22,12 +22,12 @@ export default class SeederBlockComponent extends Component {
   @action
   generate() {
     if (this.counter && this.isCounterValid) {
-      this.seederTask.perform(this.counter);
+      this.seederService.seedRandomLibraries.perform(this.counter);
     }
   }
 
   @action
   delete() {
-    this.destroyerTask.perform();
+    this.seederService.deleteLibraries.perform();
   }
 }
