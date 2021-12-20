@@ -1,4 +1,10 @@
 @import 'ember-bootstrap/bootstrap';
+@import 'ember-bootstrap/root';
+@import 'ember-bootstrap/print';
+@import 'ember-bootstrap/reboot';
+@import 'ember-bootstrap/functions';
+@import 'ember-bootstrap/variables';
+@import 'ember-bootstrap/mixins';
 
 body {
   padding-top: 40px;

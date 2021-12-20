@@ -1,23 +1,33 @@
 import Component from '@glimmer/component';
-import { lte, not, or } from '@ember/object/computed';
 import { action } from '@ember/object';
+import { lte, not, or } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
+const MAX_VALUE = 100;
 export default class SeederBlockComponent extends Component {
-  max_value = 100;
+  @service('seeder') seederService;
+  @tracked counter = null;
+  @tracked readyMessage;
 
-  counter = null;
-
-  @lte('counter', this.max_value) isCounterValid;
+  @lte('counter', MAX_VALUE) isCounterValid;
   @not('isCounterValid') isCounterNotValid;
-  placeholder = `Max ${this.max_value}`;
-  generateReady = false;
-  deleteReady = false;
 
-  generateInProgress = false;
-  deleteInProgress = false;
+  placeholder = `Max ${MAX_VALUE}`;
 
-  @or('isCounterNotValid', 'generateInProgress', 'deleteInProgress')
+  @or('isCounterNotValid', 'seedingInProgress', 'deletingInProgress')
   generateIsDisabled;
+  @or('seedingInProgress', 'deletingInProgress') deleteIsDisabled;
 
-  @or('generateInProgress', 'deleteInProgress') deleteIsDisabled;
+  @action
+  generate() {
+    if (this.counter && this.isCounterValid) {
+      this.seederTask.perform(this.counter);
+    }
+  }
+
+  @action
+  delete() {
+    this.destroyerTask.perform();
+  }
 }
