@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { lte, not, or } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
+// import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 const MAX_VALUE = 100;
 export default class SeederBlockComponent extends Component {
-  @service('seeder') seederService;
+  // @service('seeder') seederService;
   @tracked counter = null;
   @tracked readyMessage;
 
